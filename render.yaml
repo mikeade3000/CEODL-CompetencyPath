@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: competencypath-openrouter
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: meta-llama/llama-3.3-70b-instruct
+      - key: OPENROUTER_APP_NAME
+        value: CompetencyPath OpenRouter
+      - key: PUBLIC_BASE_URL
+        sync: false
